@@ -227,12 +227,12 @@ main {
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     border-left: 5px solid #4e73df;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .dashboard-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
 }
 
 .dashboard-card h5 {
