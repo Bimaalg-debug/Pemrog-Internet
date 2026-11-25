@@ -1,0 +1,76 @@
+:root {
+    --sidebar-width: 260px;
+    --transition-speed: 0.3s;
+    --active-menu: linear-gradient(90deg, #0d6efd, #0a58ca);
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+#wrapper {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+}
+
+#sidebar {
+    width: var(--sidebar-width);
+    min-width: var(--sidebar-width);
+    transition: margin-left var(--transition-speed) ease;
+    z-index: 1050;
+    background-color: #ffffff;
+}
+
+/* MENU SIDEBAR */
+.sidebar-nav .nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.75rem;
+    margin: 0.2rem 0.75rem;
+    font-weight: 400;
+    color: #0d6efd;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* IKON - BIAR BISA MUTAR 180 */
+.sidebar-nav .nav-link i {
+    margin-right: 10px;
+    transition: transform 0.5s ease;
+    display: inline-block;
+}
+
+/* PAS KURSOR NEMPEL - FONT JADI PUTIH */
+.sidebar-nav .nav-link:hover {
+    background: var(--active-menu
+    color: #ffffff;
+    transform: translateX(5px);
+}
+
+.sidebar-nav .nav-link:hover i {
+    color: #ffffff;
+    transform: rotate(360deg);
+}
+
+/* PAS MENU AKTIF / UDAH DIKLIK */
+.sidebar-nav .nav-link.active {
+    background: var(--active-menu);
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(13, 110, 253, 0.4);
+}
+
+.sidebar-nav .nav-link.active i {
+    color: #ffffff;
+}
+
+/* PAS LAGI DITEKEN */
+.sidebar-nav .nav-link:active {
+    transform: scale(0.97);
+}
