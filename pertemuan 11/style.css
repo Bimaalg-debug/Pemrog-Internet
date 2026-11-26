@@ -1,259 +1,89 @@
-/* ============================= */
-/* ROOT / VARIABLE */
-/* ============================= */
-
 :root {
-    --topbar-height: 65px;
-    --sidebar-width: 250px;
-    --primary-color: #4e73df;
-    --sidebar-bg: #343a40;
-    --body-bg: #f8f9fc;
-}
-
-/* ============================= */
-/* BODY */
-/* ============================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    --sidebar-width: 260px;
+    --active-menu: linear-gradient(140deg, blue, #8a54e2);
+    --topbar-height: 60px;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: var(--body-bg);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     overflow-x: hidden;
 }
 
-/* ============================= */
-/* WRAPPER */
-/* ============================= */
-
 #wrapper {
     display: flex;
+    width: 100%;
     min-height: 100vh;
+    position: relative;
 }
-
-/* ============================= */
-/* SIDEBAR */
-/* ============================= */
 
 #sidebar {
     width: var(--sidebar-width);
-    min-height: 100vh;
-    background: var(--sidebar-bg);
-    color: white;
-    transition: all .3s ease;
-}
-
-.sidebar-nav {
-    list-style: none;
-    padding: 15px;
+    min-width: var(--sidebar-width);
+    transition: margin-left var(--transition-speed) ease;
+    z-index: 1050;
 }
 
 .sidebar-nav .nav-link {
     display: flex;
     align-items: center;
-    padding: 12px 15px;
-    color: #ddd;
-    text-decoration: none;
-    border-radius: 6px;
-    transition: .3s ease;
-}
-
-.sidebar-nav .nav-link:hover {
-    background: rgba(255,255,255,.1);
-    color: white;
+    justify-content: space-between;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.75rem;
+    margin: 0.2rem 0.75rem;
+    font-weight: 400;
 }
 
 .sidebar-nav .nav-link.active {
-    background: var(--primary-color);
-    color: white;
+    background: var(--active-menu);
+    color: #fff;
 }
 
-/* menu icon */
+.sidebar-nav .nav-link:hover {
+    background-color: rgb(93, 96, 236);
+    color: #fff;
+}
+
+.sidebar-nav .menu-text {
+    display: inline-block;
+    transition: transform 0.40s ease;
+}
+
+.sidebar-nav .nav-link:hover .menu-text {
+    transform: translateX(5px);
+}
+
 .sidebar-nav .menu-icon {
     display: inline-block;
-    transition: transform .5s ease;
+    transition: transform 0.40s ease;
 }
 
-.sidebar-nav .nav-link:not(.active):hover .menu-icon {
+.sidebar-nav .nav-link:hover .menu-icon {
     transform: rotateY(180deg);
 }
 
-.sidebar-nav .nav-link .menu-title {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-/* ============================= */
-/* CONTENT WRAPPER */
-/* ============================= */
-
-#content-wrapper {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-}
-
-/* ============================= */
-/* TOPBAR */
-/* ============================= */
-
+/*topbar*/
 #topbar {
     height: var(--topbar-height);
     padding: 0 1.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,.05);
+    width: 100%;
+    box-sizing: border-box;
 }
 
-/* ============================= */
-/* MAIN CONTENT */
-/* ============================= */
+#topbar .ms-auto {
+    margin-left: auto !important;
+}
 
-main {
+#content-wrapper {
     flex: 1;
-    padding: 25px;
-}
-
-/* ============================= */
-/* BUTTON */
-/* ============================= */
-
-button {
-    cursor: pointer;
-}
-
-/* ============================= */
-/* RESPONSIVE */
-/* ============================= */
-
-@media (max-width: 768px) {
-
-    #sidebar {
-        width: 70px;
-    }
-
-    .sidebar-nav .menu-title {
-        display: none;
-    }
-
-    #topbar {
-        padding: 0 1rem;
-    }
-
-    main {
-        padding: 15px;
-    }
-
-}
-
-@media (max-width: 480px) {
-
-    #sidebar {
-        width: 55px;
-    }
-
-    #topbar {
-        padding: 0 10px;
-    }
-
-}
-
-
-/* ============================= */
-/* TAMBAHAN PERBAIKAN DASHBOARD */
-/* ============================= */
-
-#sidebar {
-    flex-shrink: 0;
-}
-
-#topbar {
+    min-width: 0;
     width: 100%;
-    position: relative;
-    z-index: 10;
 }
 
-main {
-    width: 100%;
-    min-height: calc(100vh - var(--topbar-height));
+.sidebar-nav ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
 }
-
-/* Dashboard card */
-.dashboard-card {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,.05);
-    margin-bottom: 20px;
-}
-
-.dashboard-card h5 {
-    color: #343a40;
-    margin-bottom: 10px;
-}
-
-.dashboard-card p {
-    color: #6c757d;
-    margin-bottom: 0;
-}
-
-/* Sidebar heading */
-.sidebar-heading {
-    padding: 20px 15px;
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
-    border-bottom: 1px solid rgba(255,255,255,.1);
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-    .dashboard-card {
-        padding: 15px;
-    }
-}
-
-.dashboard-card {
-    background: #ffffff;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    border-left: 5px solid #4e73df;
-    transition: 0.3s;
-}
-
-.dashboard-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
-}
-
-.dashboard-card h5 {
-    font-size: 16px;
-    color: #555;
-}
-
-.dashboard-card h2 {
-    font-size: 30px;
-    color: #4e73df;
-    font-weight: bold;
-}
-
-.sidebar-heading {
-    text-align: center;
-    padding: 25px 10px;
-    font-size: 17px;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-/* === BUAT PINDAH HALAMAN === */
-.page { display: none; }
-.page.active { display: block; }
