@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p id="hello"></p>
+    <p id="nama"></p>
+    <  p id="ucapan"></p>
+
+    <script>
+        let hello = document.getElementById("hello");
+        hello.innerHTML = "Hello";
+
+        let nama = document.getElementById("nama");
+        nama.innerHTML = "Budi";
+
+        let ucapan = document.getElementById("ucapan");
+
+        let jam = new Date().getHours();
+
+        if (jam < 11) {
+            ucapan.innerHTML = "Selamat Pagi";
+        } else if (jam < 15) {
+            ucapan.innerHTML = "Selamat Siang";
+        } else if (jam < 18) {
+            ucapan.innerHTML = "Selamat Sore";
+        } else {
+            ucapan.innerHTML = "Selamat Malam";
+        }
+    </script>
+
+</body>
+</html>

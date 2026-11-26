@@ -48,7 +48,7 @@ body {
 
 /* PAS KURSOR NEMPEL - FONT JADI PUTIH */
 .sidebar-nav .nav-link:hover {
-    background: var(--active-menu
+    background: var(--active-menu);
     color: #ffffff;
     transform: translateX(5px);
 }
